@@ -60,7 +60,7 @@ const void Engine::drawBoard(bool shouldClear) {
 }
 
 const bool Engine::validateMove(int pos) {
-	return pos <= boardCellCount && (board[pos] != p1Token && board[pos] != p2Token);
+	return (pos <= boardCellCount && pos >= 0) && (board[pos] != p1Token && board[pos] != p2Token);
 }
 
 const bool Engine::hasWinner() {
@@ -123,7 +123,7 @@ const bool Engine::hasWinner() {
 	}
 
 	// check diagonals 
-	else if (board[0] == board[5] && board[5] == board[9]) {
+	else if (board[0] == board[5] && board[5] == board[8]) {
 		if (board[0] == p1Token) {
 			winner = "p1";
 		}

@@ -39,17 +39,16 @@ int main() {
 
 		const bool hasWinner = engine.hasWinner();
 		const bool isDraw = engine.isDraw();
-		std::cout << isDraw << std::endl;
 		if (hasWinner) {
 			isGameOver = true;
 			engine.drawBoard();
 			const std::string winner = engine.getWinner();
-			std::cout << winner << std::endl;
+			std::cout << "Game Over!\n" << (winner == "p1" ? "\033[31;1mPlayer 1 Won!\033[0m" : "\033[36;1mPlayer 2 Won!\033[0m") << std::endl;
 		}
 		else if (isDraw) {
 			isGameOver = true;
 			engine.drawBoard();
-			std::cout << "Draw" << std::endl;
+			std::cout << "Game Over! \033[33;1mIt was a Draw!\033[0m" << std::endl;
 		}
 	}
 
